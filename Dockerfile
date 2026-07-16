@@ -70,9 +70,11 @@ RUN pip install --no-cache-dir "setuptools==75.8.0"
 
 COPY start-railway.sh /code/start-railway.sh
 COPY backup_github.py /code/backup_github.py
+
 RUN chmod +x /code/start-railway.sh \
-    && ln -sf /code/marzban-cli.py /usr/bin/marzban-cli \
-    && chmod +x /usr/bin/marzban-cli
+&& chmod +x /code/backup_github.py \
+&& ln -sf /code/marzban-cli.py /usr/bin/marzban-cli \
+&& chmod +x /usr/bin/marzban-cli
 
 RUN useradd -m -u 1000 appuser \
     && mkdir -p /code/data /var/lib/marzban \
