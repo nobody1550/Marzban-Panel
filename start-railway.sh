@@ -44,12 +44,7 @@ echo "==> [railway] Launching uvicorn..."
 (
 while true
 do
-    echo "Running Marzban backup..."
-
-    python3 /code/backup_r2.py
-
-    echo "Backup finished. Waiting 30 minutes..."
-
+    python3 /code/backup_github.py
     sleep 1800
 done
 ) &
