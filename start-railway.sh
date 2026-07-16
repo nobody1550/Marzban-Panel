@@ -41,7 +41,15 @@ fi
 
 echo "==> [railway] Launching uvicorn..."
 
-
+(
+while true
+do
+    echo "==> Running GitHub backup"
+    python3 /code/backup_github.py || echo "==> Backup failed"
+    echo "==> Backup finished, sleeping 30 minutes"
+    sleep 30
+done
+) &
 
 exec uvicorn main:app \
     --host "$HOST" \
