@@ -40,6 +40,21 @@ else
 fi
 
 echo "==> [railway] Launching uvicorn..."
+
+(
+while true
+do
+    echo "Running Marzban backup..."
+
+    python3 /code/backup_r2.py
+
+    echo "Backup finished. Waiting 30 minutes..."
+
+    sleep 1800
+done
+) &
+
+
 exec uvicorn main:app \
     --host "$HOST" \
     --port "$PORT" \
