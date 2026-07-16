@@ -68,11 +68,11 @@ COPY --from=builder /build /code
 # upgrading setuptools doesn't help - we must pin a version that still ships it.
 RUN pip install --no-cache-dir "setuptools==75.8.0"
 
-COPY start-railway.sh /code/start-railway.sh
 COPY backup_github.py /code/backup_github.py
+COPY start-railway.sh /code/start-railway.sh
 
-RUN chmod +x /code/start-railway.sh \
-&& chmod +x /code/backup_github.py \
+RUN chmod +x /code/backup_github.py \
+&& chmod +x /code/start-railway.sh \
 && ln -sf /code/marzban-cli.py /usr/bin/marzban-cli \
 && chmod +x /usr/bin/marzban-cli
 
