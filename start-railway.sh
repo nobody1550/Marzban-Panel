@@ -41,15 +41,6 @@ fi
 
 echo "==> [railway] Launching uvicorn..."
 
-(
-while true
-do
-    echo "Starting backup..."
-    python3 /code/backup_github.py
-    echo "Backup done. Sleeping 30 minutes..."
-    sleep 60
-done
-) &
 
 
 exec uvicorn main:app \
