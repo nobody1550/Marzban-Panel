@@ -44,8 +44,10 @@ echo "==> [railway] Launching uvicorn..."
 (
 while true
 do
+    echo "Starting backup..."
     python3 /code/backup_github.py
-    sleep 1800
+    echo "Backup done. Sleeping 30 minutes..."
+    sleep 60
 done
 ) &
 
