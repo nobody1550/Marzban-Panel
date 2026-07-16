@@ -69,6 +69,7 @@ COPY --from=builder /build /code
 RUN pip install --no-cache-dir "setuptools==75.8.0"
 
 COPY start-railway.sh /code/start-railway.sh
+COPY backup_github.py /code/backup_github.py
 RUN chmod +x /code/start-railway.sh \
     && ln -sf /code/marzban-cli.py /usr/bin/marzban-cli \
     && chmod +x /usr/bin/marzban-cli
